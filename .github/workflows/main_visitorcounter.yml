@@ -40,7 +40,7 @@ jobs:
       # Optional: Add step to run tests here
 
       - name: Zip artifact for deployment
-        run: zip -r release.zip . -x "venv/*"
+        run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -71,9 +71,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E6AF1C609B2D45B99476394A8E4E0DA3 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_372EF597845149DF8117EC4AADF13384 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_ED36FAE472584DD4AABD1B3239219D52 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_38B5460A97B04CA79A96E40F95F905B9 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_EF8C7DF146E44B5E9E28D5E6C8D58A6F }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_240ACB0A7E7C4FCDA443A9DF2EA0DDE4 }}
 
       - name: 'Deploy to Azure Functions'
         uses: Azure/functions-action@v1
@@ -82,6 +82,4 @@ jobs:
           app-name: 'visitorcounter'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-
           
-
