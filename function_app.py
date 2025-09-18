@@ -8,7 +8,7 @@ from azure.data.tables import TableClient, UpdateMode
 from azure.identity import DefaultAzureCredential
 app = func.FunctionApp()
 
-@app.route(route="GetVisitorCountHttpTrigger", methods=["POST"], auth_level=func.AuthLevel.ANONYMOUS)
+@app.route(route="GetVisitorCount", methods=["POST"], auth_level=func.AuthLevel.ANONYMOUS)
 
 def GetVisitorCount(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Visitor counter function processed a request.')
