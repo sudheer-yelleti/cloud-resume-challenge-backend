@@ -11,6 +11,16 @@
             "path": "src/function_app.py",
             "envManager": "ms-python.python:system",
             "packageManager": "ms-python.python:pip"
+        },
+        {
+            "path": "src",
+            "envManager": "ms-python.python:system",
+            "packageManager": "ms-python.python:pip"
+        },
+        {
+            "path": "function_app.py",
+            "envManager": "ms-python.python:system",
+            "packageManager": "ms-python.python:pip"
         }
     ],
     "python-envs.defaultEnvManager": "ms-python.python:system"
