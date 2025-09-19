@@ -16,7 +16,7 @@ az cosmosdb sql role assignment create -a visitorinfo -g cloud-resume-challenge-
 # Configure Function App settings for Cosmos DB Table API connection
 ```azurecli
 az functionapp config appsettings set \
-  --name visitorcounter \
+  --name GetVisitorData  \
   --resource-group cloud-resume-challenge-dev \
   --settings \
   "CosmosDBTableConnection__accountEndpoint=https://visitorinfo.table.cosmos.azure.com:443/" \
