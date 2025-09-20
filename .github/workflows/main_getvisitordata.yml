@@ -33,13 +33,12 @@ jobs:
       run: |
         pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
         python -m pip install --upgrade pip
-        pip install -r requirements.txt --target=".python_packages/lib/site-packages" --upgrade
+        pip install -r requirements.txt
+        pip install pytest pytest-cov azure-functions azure-data-tables azure-identity
         popd
 
     - name: 'Run tests with pytest'
       run: |
-        pip install pytest pytest-cov
-        pip install -r requirements.txt --target=".python_packages/lib/site-packages"
         pytest tests/ -v --maxfail=1 --disable-warnings --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
 
     - name: 'Deploy to Azure Functions'
