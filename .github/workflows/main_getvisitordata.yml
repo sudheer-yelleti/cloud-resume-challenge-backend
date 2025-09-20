@@ -97,18 +97,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install azure-functions azure-data-tables azure-identity
-      
-      - name: Prepare deployment package
-        run: |
-          mkdir -p deploy_package
-          cp function_app.py deploy_package/
-          cp host.json deploy_package/
 
       - name: Deploy to Azure Functions
         uses: Azure/functions-action@v1
         with:
           app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-          package: deploy_package
+          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
           publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
           scm-do-build-during-deployment: true
           enable-oryx-build: true
