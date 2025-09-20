@@ -36,6 +36,11 @@ jobs:
         pip install -r requirements.txt --target=".python_packages/lib/site-packages"
         popd
 
+    - name: 'Run tests with pytest'
+      shell: bash
+      run: |
+          python -m pytest -v --maxfail=1 --disable-warnings
+
     - name: 'Deploy to Azure Functions'
       uses: Azure/functions-action@v1
       id: fa
