@@ -39,7 +39,7 @@ jobs:
     - name: 'Run tests with pytest'
       shell: bash
       run: |
-          python -m pytest -v --maxfail=1 --disable-warnings
+          python -m pytest tests/ -v --maxfail=1 --disable-warnings
 
     - name: 'Deploy to Azure Functions'
       uses: Azure/functions-action@v1
