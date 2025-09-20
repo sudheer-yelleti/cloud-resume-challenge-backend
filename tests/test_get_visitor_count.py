@@ -18,8 +18,8 @@ def make_request(body=None):
     )
 
 
-@patch("GetVisitorCount.TableClient")
-@patch("GetVisitorCount.DefaultAzureCredential")
+@patch("function_app.TableClient")
+@patch("function_app.DefaultAzureCredential")
 def test_first_visit_initializes_count(mock_cred, mock_table_client):
     # Arrange
     mock_instance = MagicMock()
@@ -44,8 +44,8 @@ def test_first_visit_initializes_count(mock_cred, mock_table_client):
     assert entity["Count"] == 1
 
 
-@patch("GetVisitorCount.TableClient")
-@patch("GetVisitorCount.DefaultAzureCredential")
+@patch("function_app.TableClient")
+@patch("function_app.DefaultAzureCredential")
 def test_existing_visitor_increments_count(mock_cred, mock_table_client):
     # Arrange
     mock_instance = MagicMock()
@@ -69,8 +69,8 @@ def test_existing_visitor_increments_count(mock_cred, mock_table_client):
     assert entity["Count"] == 6
 
 
-@patch("GetVisitorCount.TableClient")
-@patch("GetVisitorCount.DefaultAzureCredential")
+@patch("function_app.TableClient")
+@patch("function_app.DefaultAzureCredential")
 def test_error_handling_returns_500(mock_cred, mock_table_client):
     # Arrange: make TableClient throw during creation
     mock_table_client.side_effect = Exception("Connection error")
