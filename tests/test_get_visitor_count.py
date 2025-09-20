@@ -6,7 +6,7 @@ import sys
 import azure.functions as func
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from function_app import main as GetVisitorCount  # your function entrypoint
+from function_app import GetVisitorCount  # your function entrypoint
 
 # Mock environment variables
 os.environ["VISITOR_TABLE_NAME"] = "Visitors"
