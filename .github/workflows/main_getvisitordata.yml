@@ -37,7 +37,6 @@ jobs:
         popd
 
     - name: 'Run tests with pytest'
-      shell: bash
       run: |
           python -m pytest tests/ -v --maxfail=1 --disable-warnings
 
