@@ -10,7 +10,7 @@ from function_app import GetVisitorCount  # your function entrypoint
 
 # Mock environment variables
 os.environ["VISITOR_TABLE_NAME"] = "Visitors"
-os.environ["COSMOS_TABLE_URL"] = "https://mock.table.core.windows.net"
+os.environ["CosmosDBTableConnection__accountEndpoint"] = "https://mock.table.core.windows.net"
 
 def make_request(body=None):
     return func.HttpRequest(
