@@ -46,6 +46,7 @@ def GetVisitorCount(req: func.HttpRequest) -> func.HttpResponse:
         
         # Return response
         response_data = {
+            'currentcount': current_count,
             'count': new_count,
             'message': f'You are visitor number {new_count}!'
         }
