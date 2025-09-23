@@ -38,7 +38,7 @@ jobs:
           pip install pytest pytest-cov azure-functions azure-data-tables azure-identity
 
   test:
-    name: Test
+    name: Run Unit Tests
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -106,3 +106,11 @@ jobs:
           publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
           scm-do-build-during-deployment: true
           enable-oryx-build: true
+  SmokeTests:
+     name: Run Smoke Tests against deployed function
+     runs-on: ubuntu-latest
+     env:
+      FUNC_URL: https://getvisitordata.azurewebsites.net/api/GetVisitorCount
+      run: |
+       pip install pytest requests
+       pytest -s -q tests/smoketest.py
