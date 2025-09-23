@@ -1,5 +1,6 @@
 import requests
 import pytest
+import os
 
 @pytest.mark.smoke
 def test_smoke_deployed_function():
