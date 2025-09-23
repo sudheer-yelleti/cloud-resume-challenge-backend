@@ -7,17 +7,22 @@ terraform {
       version = "=4.44.0"
     }
   }
-#   backend "azurerm" {
-#     resource_group_name  = "tfstate"
-#     storage_account_name = "tfstatestgacc"
-#     container_name       = "tfstate"
-#     key                  = "terraform.tfstate"
-#   }
+  backend "azurerm" {
+    resource_group_name  = "cloud-resume-challenge-common"
+    storage_account_name = "stgaccremotestate"
+    container_name       = "tfstate"
+    key                  = "terraform.tfstate"
+
+  }
 }
 
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
-  features {}
-  subscription_id = "8362a864-1a8b-49e7-86c1-9cfdf8850b33"
+  features {
+    resource_group {
+      prevent_deletion_if_contains_resources = false
+    }
+  }
+  subscription_id = var.subscription_id[terraform.workspace]
 }
 
