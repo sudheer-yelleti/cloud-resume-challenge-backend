@@ -34,3 +34,26 @@ def test_first_visit_initializes_count(mock_cred, mock_table_client):
     body = json.loads(resp.get_body())
     assert body["count"] == 1
     assert "visitor number" in body["message"]
+
+def test_smoke_getvisitorcount_runs():
+    """Smoke test: function runs and returns a valid HttpResponse"""
+    from function_app import GetVisitorCount
+    import azure.functions as func
+
+    # Minimal valid request
+    req = func.HttpRequest(
+        method="POST",
+        url="/api/GetVisitorCount",
+        body=b"{}",
+        headers={"Content-Type": "application/json"}
+    )
+
+    # Call function
+    resp = GetVisitorCount(req)
+
+    # Smoke assertions
+    assert resp is not None
+    assert hasattr(resp, "status_code")
+    assert resp.status_code in [200]  # should always be a valid HTTP code
+    assert resp.get_body() is not None
+
