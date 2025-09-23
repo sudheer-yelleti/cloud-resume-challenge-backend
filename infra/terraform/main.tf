@@ -40,7 +40,7 @@ resource "azurerm_storage_account" "remotestate" {
 resource "azurerm_storage_account_static_website" "staticwebsite" {
   storage_account_id = azurerm_storage_account.visitorcounter.id
   error_404_document = "custom_not_found.html"
-  index_document     = "resume.html"
+  index_document     = "index.html"
 }
 # For storing the terraform state backend
 resource "azurerm_storage_container" "tfstate" {
