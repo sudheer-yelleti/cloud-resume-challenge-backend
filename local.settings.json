@@ -5,7 +5,7 @@
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "python",
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "CosmosDBTableConnection__accountEndpoint": "https://visitorinfo.table.cosmos.azure.com:443/",
+    "CosmosDBTableConnection__accountEndpoint": "https://visitorinfo-cosmos-db-dev.table.cosmos.azure.com:443/",
     "CosmosDBTableConnection__credential": "managedidentity",
     "CosmosDBTableConnection__accountName": "visitorinfo"
   }
