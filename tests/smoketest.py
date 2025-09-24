@@ -9,7 +9,7 @@ def test_smoke_deployed_function():
     resp = requests.post(url, json={})
     
     # Basic validations
-     assert resp.status_code == 200
+    assert resp.status_code == 200
     data = resp.json()
     assert "count" in data
     assert "currentcount" in data
